@@ -23,4 +23,7 @@ export class FoodListComponent {
     this.todaysFoodsTotalCalories += food.calories;
   }
 }
+updateTotalCalories() {
+  this.todaysFoodsTotalCalories = this.todaysFoods.reduce((total, food) => total + (food.calories * food.quantity), 0);
+}
 
