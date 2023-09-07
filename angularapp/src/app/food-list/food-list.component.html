@@ -24,4 +24,9 @@
     <input type="number" [(ngModel)]="food.quantity" (ngModelChange)="updateTotalCalories()">
     <button (click)="addToTodaysList(food)">Add to Today's List</button>
   </div>
+  <div *ngFor="let food of foods">
+    <img [src]="'assets/' + food.image" alt="{{ food.name }} Image">
+    <p>{{ food.name }} x{{ food.quantity || 1 }}</p>
+    <button (click)="addToTodaysList(food)">Add to Today's List</button>
+  </div>
   
