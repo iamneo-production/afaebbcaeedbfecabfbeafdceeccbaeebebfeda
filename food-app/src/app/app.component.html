@@ -1,11 +1,58 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<div>
+  <h1>Food App</h1>
+
+  <!-- Task 3: Add New Foods -->
+  <button (click)="showAddForm = !showAddForm">Add New Food</button>
+
+  <!-- Task 2: Search Foods -->
+  <label for="search">Search by Name: </label>
+  <input type="text" id="search" [(ngModel)]="searchText">
+
+  <!-- Task 1: Display Foods -->
+  <app-food-list [foods]="foods | foodFilter: searchText"></app-food-list>
+
+  <!-- Task 4: Today's Foods List -->
+  <h2>Today's Foods</h2>
+  <ul>
+    <li *ngFor="let todayFood of todayFoods">
+      {{ todayFood.name }} x{{ todayFood.quantity }}
+      <button (click)="removeFromToday(todayFood)">Remove</button>
+    </li>
+  </ul>
+
+  <!-- Task 5 (Bonus): Quantities -->
+  <div *ngIf="showAddForm">
+    <h2>Add New Food</h2>
+    <form (submit)="addFood()">
+      <label for="name">Name: </label>
+      <input type="text" id="name" [(ngModel)]="newFood.name" required>
+
+      <label for="calories">Calories: </label>
+      <input type="number" id="calories" [(ngModel)]="newFood.calories" required>
+
+      <label for="image">Image URL: </label>
+      <input type="text" id="image" [(ngModel)]="newFood.image" required>
+
+      <label for="quantity">Quantity: </label>
+      <input type="number" id="quantity" [(ngModel)]="newFood.quantity" value="1">
+
+      <button type="submit">Add Food</button>
+      <button type="button" (click)="showAddForm = false">Cancel</button>
+    </form>
+  </div>
+</div>
+
+
+<style>
+  :host {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
 
 <style>
   :host {
