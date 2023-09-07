@@ -1,22 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // Import FormsModule
 
-import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { NewFoodComponent } from './new-food/new-food.component';
-import { TodayComponent } from './today/today.component';
+import { FoodListComponent } from './food-list/food-list.component'; // Import the FoodListComponent
+import { FoodFilterPipe } from './food-filter.pipe'; // Import the FoodFilterPipe
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    NewFoodComponent,
-    TodayComponent
+    FoodListComponent, // Add FoodListComponent to declarations
+    FoodFilterPipe // Add FoodFilterPipe to declarations
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule // Add FormsModule to imports
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -13,4 +13,3 @@ export class FoodFilterPipe implements PipeTransform {
     return items.filter(item => item.name.toLowerCase().includes(searchText));
   }
 }
-
