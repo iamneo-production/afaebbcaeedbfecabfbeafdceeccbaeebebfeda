@@ -1,11 +1,14 @@
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
-<!-- * * * * * * * to get started with your project! * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<div>
+  <h1>Food List</h1>
+  <ul>
+    <li *ngFor="let food of foods">
+      <img [src]="food.image" alt="{{ food.name }}">
+      <span>{{ food.name }}</span>
+      <span>{{ food.calories }} calories</span>
+    </li>
+  </ul>
+</div>
+
 
 <style>
   :host {

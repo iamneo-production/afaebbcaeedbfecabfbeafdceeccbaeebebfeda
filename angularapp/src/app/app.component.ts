@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angularapp';
+  foods = [
+    { name: 'Apple', calories: 52, image: 'path/to/apple.jpg' },
+    { name: 'Banana', calories: 89, image: 'path/to/banana.jpg' },
+    // Add more food items as needed
+  ];
 }
+
