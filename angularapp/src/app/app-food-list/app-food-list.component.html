@@ -1,0 +1,11 @@
+<div>
+    <h2>Food List</h2>
+    <div id="foodList">
+      <div *ngFor="let food of foods | foodFilter: searchTerm" class="foodItem">
+        <img [src]="food.image" alt="{{ food.name }}">
+        <p class="foodName">{{ food.name }}</p>
+        <p class="foodCalories">{{ food.calories }} Calories</p>
+        <button (click)="addToToday(food)">Add to today's list</button>
+      </div>
+    </div>
+  </div>
