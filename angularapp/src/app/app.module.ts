@@ -1,16 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule } from '@angular/forms'; // Add FormsModule
 
 import { AppComponent } from './app.component';
+import { AppFoodListComponent } from './app-food-list/app-food-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppFoodListComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule // Add FormsModule to the imports array
+    FormsModule // Import FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
