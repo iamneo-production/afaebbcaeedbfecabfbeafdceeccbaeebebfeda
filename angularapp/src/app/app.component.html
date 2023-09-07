@@ -1,15 +1,51 @@
-<button (click)="showAddForm = !showAddForm">Add New Food</button>
+<div>
+  <h1>Food List</h1>
 
-<div *ngIf="showAddForm">
-  <form (submit)="addFood()">
-    <label for="name">Name:</label>
-    <input type="text" id="name" [(ngModel)]="newFood.name">
-    <label for="calories">Calories:</label>
-    <input type="number" id="calories" [(ngModel)]="newFood.calories">
-    <label for="image">Image:</label>
-    <input type="text" id="image" [(ngModel)]="newFood.image">
-    <button type="submit">Submit</button>
-  </form>
+  <!-- Task 3: Add New Foods -->
+  <button (click)="toggleForm()">Add Food</button>
+  <div *ngIf="showForm">
+    <h2>Add New Food</h2>
+    <form (submit)="addFood()">
+      <label for="foodName">Name:</label>
+      <input id="foodName" type="text" [(ngModel)]="newFood.name" required>
+
+      <label for="foodCalories">Calories:</label>
+      <input id="foodCalories" type="number" [(ngModel)]="newFood.calories" required>
+
+      <label for="foodImage">Image URL:</label>
+      <input id="foodImage" type="text" [(ngModel)]="newFood.image" required>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- Task 2: Search Foods -->
+  <label for="search">Search:</label>
+  <input id="search" type="text" [(ngModel)]="searchTerm">
+
+  <!-- Task 1: Display Foods -->
+  <ul>
+    <li *ngFor="let food of filteredFoods">
+      <img [src]="food.image" alt="{{ food.name }}" width="100" height="100">
+      <p>{{ food.name }}</p>
+      <p>Calories: {{ food.calories }}</p>
+      <!-- Task 5 (Bonus): Quantities -->
+      <label for="quantity">Quantity:</label>
+      <input id="quantity" type="number" [(ngModel)]="food.quantity" (change)="addToTodaysFoods(food)">
+      <!-- Task 4: Today's Foods List -->
+      <button (click)="addToTodaysFoods(food)">Add to Today's List</button>
+    </li>
+  </ul>
+
+  <!-- Task 4: Today's Foods List -->
+  <h2>Today's Foods List</h2>
+  <ul>
+    <li *ngFor="let todaysFood of todaysFoods">
+      {{ todaysFood.name }} x{{ todaysFood.quantity }}
+    </li>
+  </ul>
+
+  <p>Total Calories for Today: {{ calculateTotalCalories() }}</p>
 </div>
 
 
