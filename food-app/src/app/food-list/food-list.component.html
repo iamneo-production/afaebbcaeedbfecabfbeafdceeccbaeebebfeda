@@ -1,0 +1,11 @@
+<div *ngFor="let food of foods">
+    <div>
+      <img [src]="food.image" alt="{{ food.name }}" width="100">
+    </div>
+    <div>
+      <h3>{{ food.name }}</h3>
+      <p>Calories: {{ food.calories }}</p>
+      <button (click)="addToToday(food)">Add to Today's List</button>
+    </div>
+  </div>
+  
