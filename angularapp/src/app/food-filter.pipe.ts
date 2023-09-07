@@ -1,15 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'foodFilter'
+  name: 'foodSearch'
 })
-export class FoodFilterPipe implements PipeTransform {
-  transform(items: any[], searchText: string): any[] {
-    if (!items) return [];
-    if (!searchText) return items;
-
+export class FoodSearchPipe implements PipeTransform {
+  transform(foods: any[], searchText: string): any[] {
+    if (!searchText) return foods;
     searchText = searchText.toLowerCase();
-
-    return items.filter(item => item.name.toLowerCase().includes(searchText));
+    return foods.filter(food => food.name.toLowerCase().includes(searchText));
   }
 }
+

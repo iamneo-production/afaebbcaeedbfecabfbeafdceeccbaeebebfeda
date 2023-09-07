@@ -2,6 +2,11 @@
     <img [src]="'assets/' + food.image" alt="{{ food.name }} Image">
     <p>{{ food.name }}</p>
     <p>{{ food.calories }} Calories</p>
+  </div>
+  <div *ngFor="let food of foods">
+    <img [src]="'assets/' + food.image" alt="{{ food.name }} Image">
+    <p>{{ food.name }}</p>
+    <p>{{ food.calories }} Calories</p>
     <button (click)="addToTodaysList(food)">Add to Today's List</button>
   </div>
   
@@ -12,4 +17,12 @@
     </ul>
     <p>Total Calories: {{ todaysFoodsTotalCalories }}</p>
   </div>
+  <div *ngFor="let food of foods">
+    <img [src]="'assets/' + food.image" alt="{{ food.name }} Image">
+    <p>{{ food.name }}</p>
+    <p>{{ food.calories }} Calories</p>
+    <input type="number" [(ngModel)]="food.quantity" (ngModelChange)="updateTotalCalories()">
+    <button (click)="addToTodaysList(food)">Add to Today's List</button>
+  </div>
+  
   
